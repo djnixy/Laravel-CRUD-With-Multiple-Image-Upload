@@ -1,0 +1,20 @@
+name: Deploy production
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker Login
+      uses: docker/login-action@v3.0.0
+      with:
+        username: nikiakbar
+        password: ${{ secrets.DOCKERHUB_PAT }}
+    - run: |
+        docker build . -t nikiakbar/laravel8:latest
+        docker push nikiakbar/laravel8:latest     
