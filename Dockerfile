@@ -20,7 +20,7 @@ COPY . /var/www/html
 RUN composer install --no-interaction --no-plugins --no-scripts
 
 # Set directory permissions (adjust as needed)
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/cover
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public
 #RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Copy Apache vhost file
