@@ -21,6 +21,7 @@ RUN composer install --no-interaction --no-plugins --no-scripts
 
 # Set directory permissions (adjust as needed)
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Copy Apache vhost file
 COPY vhost.conf /etc/apache2/sites-available/000-default.conf
